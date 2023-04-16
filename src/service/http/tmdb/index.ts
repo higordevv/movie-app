@@ -1,5 +1,5 @@
 import api from "@service/axios";
-import type * as T from "@/service/http/tmdb/types";
+import type * as T from "@service/http/tmdb/types";
 
 async function fetchPopularMovies() {
   const { data } = await api.get<T.PopularMoviesResponse>("/movie/popular");

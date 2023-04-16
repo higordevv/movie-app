@@ -2,7 +2,7 @@ import {
   fetchTheMovieDbBasicConfig,
   fetchPopularMovies,
   fetchGenreMovieList,
-} from "@/service/http/tmdb";
+} from "@service/http/tmdb";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
