@@ -3,6 +3,10 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  swcMinify: true,
+  images: {
+    domains: ["image.tmdb.org"]
+  }
 }
 
 module.exports = nextConfig

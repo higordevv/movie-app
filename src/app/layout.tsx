@@ -4,6 +4,7 @@ import { S } from "../components";
 
 import { SkeletonTheme } from "react-loading-skeleton";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { MovieContextProvider, MovieContext } from "../contexts/HomeContext";
 
 const queryClient = new QueryClient();
 
@@ -17,15 +18,20 @@ export default function RootLayout({
       <head>
         <title>Movie app</title>
       </head>
-      <body className="antialiased flex min-h-screen flex-col items-center justify-between md:p-24">
+      <body className="relative antialiased flex min-h-screen flex-col items-center overflow-x-hidden bg-black">
         <QueryClientProvider client={queryClient}>
           <SkeletonTheme
             baseColor="#fdfdfd"
             highlightColor="#430461"
             borderRadius={80}
           >
-            <S.Navbar />
-            {children}
+            <header className="p-4 md:p-5 z-20">
+              <S.Navbar />
+            </header>
+            <MovieContextProvider>{children}</MovieContextProvider>
+            <footer className="mt-auto z-20">
+              <S.Footer />
+            </footer>
           </SkeletonTheme>
         </QueryClientProvider>
       </body>
